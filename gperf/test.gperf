@@ -1,0 +1,44 @@
+/* code block included at the start of the generated file */
+%{
+#include <stdio.h>
+
+#include "test.h"
+%}
+%language=ANSI-C
+/* name of the struct's field which is used as a key, defaults to "name" */
+%define slot-name id
+/*
+ * rest of the initializer list, initializes the fields other than the key field
+ * allows to avoid missing initializer warning
+ */
+%define initializer-suffix ,.u=0,.plop=NULL,.v=0.
+/* Makes the contents of all generated lookup tables constant */
+%readonly-tables
+/* Include the necessary system include file, <string.h> */
+%includes
+/*
+ * The lookup function is the only externally visible symbol, this option allows
+ * to set it's name, for example, to avoid name clashes
+ */
+%define lookup-function-name test_struct_in_set
+/*
+ * Says that we are searching structs, not strings, the struct test is defined
+ * in the test.h header, but it can be defined here intead of just declared
+ */
+%struct-type
+struct test;
+%%
+pim,  42,  "tata", 5.3
+pam,  0,   "bla",  0.1
+poum, 888, " ",    55
+toto, 123, "tutu", 0
+%%
+/* some code can be included here, but I find it quite ugly... */
+#define TEST_STR_FMT "id: %s\nu: %d\nplop: \"%s\"\nv: %f\n"
+char *test_to_str(const struct test *test, char buffer[TEST_STR_MAX_LEN])
+{
+	snprintf(buffer, TEST_STR_MAX_LEN, TEST_STR_FMT, test->id, test->u,
+		test->plop, test->v);
+
+	return buffer;
+}
