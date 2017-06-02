@@ -1,18 +1,22 @@
 # snippets
 Example snippets of code, using various technologies / tools / patterns.
 
+All the snippets use the tools `gcc` and `make`.
+
 ## gperf
 
 [gperf](https://www.gnu.org/software/gperf/) is a tool for generating perfect hash functions.
-It uses a configuration file format somewhat similar to those used by [f]lex and (bison|yacc).
+It uses a configuration file format somewhat similar to those used by
+[\[f\]lex](https://github.com/westes/flex) and
+[(bison|yacc)](https://www.gnu.org/software/bison/).
 
-### prerequisites
+### extra prerequisites
 
-The tools used are `gcc`, `gperf` and `make`.
+`gperf` is needed to build the snippet.
 
 ### usage
 
-Go in the gperf directory and then do:
+Go in the `gperf/` directory and then do:
 
         make
         ./main
@@ -27,7 +31,7 @@ The expected output is:
         wizz isn't in set
          isn't in set
 
-# content
+### content
 
 * **test.gperf**:
   Main file, contains the directives to generate `test.c`, containing the lookup function.
