@@ -85,16 +85,16 @@ The expected output is:
 * **main.c**:
   Simple test program using `test.c` as a library.
 
-## generate_permutations
+## generate\_permutations
 
-Generates all permutation of [0,n), that is, bijections of [0,n) into itself and
-allow to iterate on the set of these permutations.
+Generates all permutation of **[0,n)**, that is, bijections of **[0,n)** into
+itself and allow to iterate on the set of these permutations.
 This iterator on permutation is used to call step functions in all the possible
 orders.
 
 ### usage
 
-Go in the `generate\_permutations` directory and then do:
+Go in the `generate_permutations` directory and then do:
 
         make
         ./main
