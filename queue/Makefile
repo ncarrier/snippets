@@ -13,10 +13,12 @@ warning-flags := \
 
 optim-flags := -O0 -g3
 
-bin := list
+CFLAGS := $(warning-flags) $(optim-flags)
 
-$(bin):$(bin).c
-	gcc $^ -o $@ $(warning-flags) $(optim-flags)
+sources := $(wildcard *.c)
+bin := $(basename $(sources))
+
+all: $(bin)
 
 clean:
 	rm -f $(bin)
