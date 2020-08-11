@@ -129,3 +129,27 @@ The expected output is:
 * **Makefile**:
   Simple Makefile for the snippet.
 
+## search
+
+Small illustative programs for how to use the sub-APIs of the `<search.h>` API.
+
+### usage
+
+Go in the `search/` directory and then do:
+
+        make
+        # hash tables API demo
+        ./hsearch
+
+The expected output is:
+
+         ./hsearch
+         key "stop" found: "tizz"
+        found for key "flop": (nil)
+
+### content
+
+* **hsearch.c**:
+  Source code for the hash table API demo.
+* **Makefile**:
+  Symbolic link to the Makefile of the **queue** snippet, for reuse.
